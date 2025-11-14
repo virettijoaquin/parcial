@@ -1,0 +1,294 @@
+:root {
+    --purple-primary: #a855f7;
+    --purple-dark: #7c3aed;
+    --purple-darker: #6d28d9;
+    --purple-light: #e9d5ff;
+    --purple-lighter: #ddd6fe;
+    --gray-light: #f9fafb;
+    --gray-medium: #9ca3af;
+    --gray-dark: #4b5563;
+    --gray-darker: #333;
+    --white: #ffffff;
+    --shadow-purple: rgba(168, 85, 247, 0.3);
+    --white-transparent: rgba(255, 255, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+}
+
+.header {
+    background: linear-gradient(135deg, #9333ea 0%, var(--purple-darker) 60%, #2563eb 100%);
+    padding: 30px;
+    color: var(--white);
+    position: relative;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.moon-icon {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    transform: rotate(-15deg);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+.moon-icon:hover {
+    transform: rotate(-15deg) scale(1.1);
+}
+
+.moon-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.moon-icon svg path {
+    stroke: var(--white);
+    stroke-width: 2;
+}
+
+.profile-section {
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-content {
+    width: 100%;
+    max-width: 1440px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid var(--purple-primary);
+    object-fit: cover;
+}
+
+.profile-name h2 {
+    font-size: 2rem;
+    color: var(--gray-darker);
+    margin-bottom: 20px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.nav-buttons button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-buttons button:first-child {
+    background: var(--purple-light);
+    color: var(--purple-dark);
+}
+
+.nav-buttons button:nth-child(2) {
+    background: var(--purple-light);
+    color: var(--purple-dark);
+}
+
+.nav-buttons button:nth-child(3) {
+    background: var(--purple-light);
+    color: var(--purple-dark);
+}
+
+.nav-buttons button:nth-child(4) {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.nav-buttons button:not(:nth-child(4)):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow-purple);
+}
+
+.nav-buttons button:nth-child(4):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.info-item {
+    background: var(--gray-light);
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.info-item label {
+    display: block;
+    color: var(--purple-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.info-item p {
+    color: var(--gray-dark);
+    font-size: 1rem;
+}
+
+.footer {
+    padding: 25px 40px;
+    background: #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--gray-medium);
+    font-size: 0.9rem;
+    border-top: 2px solid #9ca3af;
+}
+
+.github-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gray-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: var(--white);
+}
+
+.github-link:hover {
+    color: var(--purple-primary);
+    border-color: var(--purple-primary);
+}
+
+.github-icon {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-buttons {
+        justify-content: center;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* Dark Mode */
+body.dark-mode .container {
+    background: #1e1e1e;
+}
+
+body.dark-mode .profile-section {
+    background: #1e1e1e;
+}
+
+body.dark-mode .profile-name h2 {
+    color: #e5e7eb;
+}
+
+body.dark-mode .info-item {
+    background: #2d2d2d;
+}
+
+body.dark-mode .info-item label {
+    color: #a78bfa;
+}
+
+body.dark-mode .info-item p {
+    color: #d1d5db;
+}
+
+body.dark-mode .footer {
+    background: #2d2d2d;
+    border-top-color: #4b5563;
+}
+
+body.dark-mode .footer p {
+    color: #9ca3af;
+}
+
+body.dark-mode .github-link {
+    background: #1e1e1e;
+    color: #d1d5db;
+    border-color: #4b5563;
+}
+
+body.dark-mode .github-link:hover {
+    color: #a78bfa;
+    border-color: #a78bfa;
+}
+
+body.dark-mode .nav-buttons button:not(:nth-child(4)) {
+    background: #a78bfa;
+    color: #1e1e1e;
+}
+
+body.dark-mode .nav-buttons button:nth-child(4) {
+    background: #60a5fa;
+    color: #1e1e1e;
+}

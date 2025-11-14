@@ -11,6 +11,15 @@
     --white: #ffffff;
     --shadow-purple: rgba(168, 85, 247, 0.3);
     --white-transparent: rgba(255, 255, 255, 0.5);
+    
+    /* Dark Mode Colors */
+    --dark-bg: #1e1e1e;
+    --dark-surface: #2d2d2d;
+    --dark-text-primary: #e5e7eb;
+    --dark-text-secondary: #d1d5db;
+    --dark-purple: #a78bfa;
+    --dark-blue: #60a5fa;
+    --dark-border: #4b5563;
 }
 
 * {
@@ -119,41 +128,43 @@ body {
     flex-wrap: wrap;
 }
 
-.nav-buttons button {
+.nav-buttons a {
     padding: 12px 30px;
     border: none;
     border-radius: 8px;
     font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.nav-buttons button:first-child {
+.nav-buttons a:first-child {
     background: var(--purple-light);
     color: var(--purple-dark);
 }
 
-.nav-buttons button:nth-child(2) {
+.nav-buttons a:nth-child(2) {
     background: var(--purple-light);
     color: var(--purple-dark);
 }
 
-.nav-buttons button:nth-child(3) {
+.nav-buttons a:nth-child(3) {
     background: var(--purple-light);
     color: var(--purple-dark);
 }
 
-.nav-buttons button:nth-child(4) {
+.nav-buttons a:nth-child(4) {
     background: #dbeafe;
     color: #1e40af;
 }
 
-.nav-buttons button:not(:nth-child(4)):hover {
+.nav-buttons a:not(:nth-child(4)):hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px var(--shadow-purple);
 }
 
-.nav-buttons button:nth-child(4):hover {
+.nav-buttons a:nth-child(4):hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
 }
@@ -181,6 +192,151 @@ body {
 .info-item p {
     color: var(--gray-dark);
     font-size: 1rem;
+}
+
+/* Success Message */
+.success-message {
+    text-align: center;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    color: #10b981;
+    margin-bottom: 10px;
+}
+
+.success-message h2 {
+    font-size: 2rem;
+    color: var(--gray-darker);
+    margin: 0;
+}
+
+.success-message p {
+    font-size: 1.1rem;
+    color: var(--gray-dark);
+    max-width: 500px;
+}
+
+.back-button {
+    margin-top: 20px;
+    padding: 12px 40px;
+    background: var(--purple-primary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: var(--purple-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow-purple);
+}
+
+/* Contact Form */
+.contact-section {
+    margin-top: 20px;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    color: var(--gray-darker);
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: var(--purple-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    border: none;
+    background: var(--gray-light);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--gray-darker);
+    transition: background 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--purple-primary);
+    background: var(--white);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.submit-button {
+    align-self: center;
+    padding: 12px 40px;
+    background: #3b82f6;
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .footer {
@@ -236,59 +392,111 @@ body {
         gap: 15px;
         text-align: center;
     }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Dark Mode */
 body.dark-mode .container {
-    background: #1e1e1e;
+    background: var(--dark-bg);
 }
 
 body.dark-mode .profile-section {
-    background: #1e1e1e;
+    background: var(--dark-bg);
 }
 
 body.dark-mode .profile-name h2 {
-    color: #e5e7eb;
+    color: var(--dark-text-primary);
 }
 
 body.dark-mode .info-item {
-    background: #2d2d2d;
+    background: var(--dark-surface);
 }
 
 body.dark-mode .info-item label {
-    color: #a78bfa;
+    color: var(--dark-purple);
 }
 
 body.dark-mode .info-item p {
-    color: #d1d5db;
+    color: var(--dark-text-secondary);
 }
 
 body.dark-mode .footer {
-    background: #2d2d2d;
-    border-top-color: #4b5563;
+    background: var(--dark-surface);
+    border-top-color: var(--dark-border);
 }
 
 body.dark-mode .footer p {
-    color: #9ca3af;
+    color: var(--gray-medium);
 }
 
 body.dark-mode .github-link {
-    background: #1e1e1e;
-    color: #d1d5db;
-    border-color: #4b5563;
+    background: var(--dark-bg);
+    color: var(--dark-text-secondary);
+    border-color: var(--dark-border);
 }
 
 body.dark-mode .github-link:hover {
-    color: #a78bfa;
-    border-color: #a78bfa;
+    color: var(--dark-purple);
+    border-color: var(--dark-purple);
 }
 
-body.dark-mode .nav-buttons button:not(:nth-child(4)) {
-    background: #a78bfa;
-    color: #1e1e1e;
+body.dark-mode .nav-buttons a:not(:nth-child(4)) {
+    background: var(--dark-purple);
+    color: var(--dark-bg);
 }
 
-body.dark-mode .nav-buttons button:nth-child(4) {
-    background: #60a5fa;
-    color: #1e1e1e;
+body.dark-mode .nav-buttons a:nth-child(4) {
+    background: var(--dark-blue);
+    color: var(--dark-bg);
+}
+
+body.dark-mode .success-message h2 {
+    color: var(--dark-text-primary);
+}
+
+body.dark-mode .success-message p {
+    color: var(--dark-text-secondary);
+}
+
+body.dark-mode .success-icon {
+    color: #34d399;
+}
+
+body.dark-mode .back-button {
+    background: var(--dark-purple);
+}
+
+body.dark-mode .back-button:hover {
+    background: var(--purple-primary);
+}
+
+body.dark-mode .contact-section h2 {
+    color: var(--dark-text-primary);
+}
+
+body.dark-mode .form-group label {
+    color: var(--dark-purple);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: var(--dark-surface);
+    color: var(--dark-text-primary);
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+    outline-color: var(--dark-purple);
+    background: var(--dark-bg);
+}
+
+body.dark-mode .submit-button {
+    background: var(--dark-blue);
+}
+
+body.dark-mode .submit-button:hover {
+    background: #3b82f6;
 }
